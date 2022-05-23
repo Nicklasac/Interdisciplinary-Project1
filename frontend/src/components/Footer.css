@@ -1,0 +1,27 @@
+.main-footer {
+  background-color: #c0c4a4;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+ul {
+  text-align: center;
+}
+
+li {
+  display: inline-block;
+  padding: 20px;
+}
+
+.footericon {
+  width: 60px;
+  cursor: pointer;
+}
+
+hr {
+  color: #c0c4a4;
+  border-color: #c0c4a4;
+  width: 50%;
+}

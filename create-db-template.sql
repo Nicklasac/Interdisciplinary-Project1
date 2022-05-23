@@ -1,0 +1,2 @@
+CREATE DATABASE foodsaviour
+    DEFAULT CHARACTER SET = 'utf8mb4';
