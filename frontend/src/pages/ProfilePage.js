@@ -17,7 +17,7 @@ export default function ProfilePage({ setAuth }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const url = `http://localhost:3000/backend/users/?id=${user.id}`;
+    const url = `https://foodsaviourapi.nicklasandie.dk/users/?id=${user.id}`;
     const userToUpdate = {
       id: user.id,
       name: user.name,
@@ -49,21 +49,21 @@ export default function ProfilePage({ setAuth }) {
   }
 
   /**
-   * handleImageChange is called every time the user chooses an image in the fire system.
+   * handleImageChange bliver kaldt hver gang brugeren vælger et billede.
    * The event is fired by the input file field in the form
    */
   function handleImageChange(event) {
     const file = event.target.files[0];
     if (file.size < 500000) {
-      // image file size must be below 0,5MB
+      // billed fil skal være under 0.5MB
       const reader = new FileReader();
       reader.onload = (event) => {
         setUser((prevUser) => ({ ...prevUser, image: event.target.result }));
       };
       reader.readAsDataURL(file);
-      setErrorMessage(""); // reset errorMessage state
+      setErrorMessage(""); // reset errorMessage
     } else {
-      // if not below 0.5MB display an error message using the errorMessage state
+      // hvis ikke under 0.5 MB bliver der vist errorMessage
       setErrorMessage("The image file is too big!");
     }
   }
@@ -103,13 +103,13 @@ export default function ProfilePage({ setAuth }) {
           />
         </label>
         <label>
-          Title
+          Address
           <input
             type="text"
             value={user.title || ""}
             onChange={handleChange}
             name="title"
-            placeholder="Type your title"
+            placeholder="Enter your address"
           />
         </label>
         <label>

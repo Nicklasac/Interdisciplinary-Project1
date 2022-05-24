@@ -3,11 +3,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import PostForm from "../components/PostForm";
 import UserAvatar from "../components/UserAvatar";
 
-export default function UpdatePage() {
+//vis mere side
+export default function CheckoutPage() {
   const [post, setPost] = useState({});
   const params = useParams();
   const navigate = useNavigate();
-  const url = `http://localhost:3000/backend/posts/?id=${params.postId}`;
+  const url = `https://foodsaviourapi.nicklasandie.dk/posts/?id=${params.postId}`;
 
   useEffect(() => {
     async function getPost() {
@@ -19,16 +20,14 @@ export default function UpdatePage() {
   }, [url]);
 
   function myFunction() {
-    alert("I am an alert box!");
-  }
-
-  function homepageClick() {
+    window.alert("Your order has been confirmed!");
     navigate("/");
   }
 
   if (!post.uid) {
     return null;
   }
+  //den samme som post card den poster bare flere nye informationer
   return (
     <section className="page">
       <h1>Confirm order</h1>
@@ -42,7 +41,7 @@ export default function UpdatePage() {
         <hr />
         <p>{post.time}</p>
         <p>{post.location}</p>
-        <button onclick={homepageClick}>Checkout</button>
+        <button onClick={myFunction}>Checkout</button>
       </section>
     </section>
   );

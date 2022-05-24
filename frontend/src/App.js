@@ -11,9 +11,9 @@ import ProfilePage from "./pages/ProfilePage";
 import Footer from "./components/Footer";
 
 export default function App() {
-  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth")); // default value comes from localStorage
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth")); // standart værdi kommer fra localStorage
 
-  // variable holding all private routes including the nav bar
+  // variable holder alle private ruter også nav bar
   const privateRoutes = (
     <>
       <Nav />
@@ -29,7 +29,7 @@ export default function App() {
     </>
   );
 
-  // variable holding all public routes without nav bar
+  // variable holder alle private ruter uden nav bar
   const publicRoutes = (
     <Routes>
       <Route path="/sign-in" element={<SignInPage setAuth={setIsAuth} />} />
@@ -38,7 +38,7 @@ export default function App() {
     </Routes>
   );
 
-  // if user is authenticated, show privateRoutes, else show publicRoutes
-  // also, display or display not the <Loader/> based on showLoader state
+  // hvis brugeren er bekreftet, vis privateRoutes, eller publicRoutes
+  // også, vis eller ikke vis <loader/> baseret på showLoader state
   return <main>{isAuth ? privateRoutes : publicRoutes}</main>;
 }

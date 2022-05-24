@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/img/FoodSaviour-v3.png";
 
 export default function SignInPage({ setAuth }) {
   const [errorMessage, setErrorMessage] = useState("");
 
   async function signIn(event) {
     event.preventDefault();
-    const mail = event.target.mail.value; // mail value from inout field in sign in form
-    const password = event.target.password.value; // password value from inout field in sign in form
+    const mail = event.target.mail.value; //mail værdien fra input feltet sign in
+    const password = event.target.password.value; // password værdi fra input feltet sign in
     const loginObject = { mail: mail, password: password };
     const response = await fetch(
-      "http://localhost:3000/backend/auth/?action=login",
+      "https://foodsaviourapi.nicklasandie.dk/auth/?action=login",
       {
         method: "POST",
         body: JSON.stringify(loginObject),
@@ -33,6 +34,7 @@ export default function SignInPage({ setAuth }) {
   }
   return (
     <section className="page">
+      <img className="signInImg" src={logo} />
       <h1>Sign In</h1>
       <form onSubmit={signIn}>
         <input type="email" name="mail" placeholder="Type your mail" />

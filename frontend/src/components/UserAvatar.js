@@ -7,7 +7,7 @@ export default function UserAvatar({ uid }) {
     name: "User's Name",
     title: "User's Title",
   });
-  const url = `http://localhost:3000/backend/users/?id=${uid}`;
+  const url = `https://foodsaviourapi.nicklasandie.dk/users/?id=${uid}`;
 
   useEffect(() => {
     async function getUser() {

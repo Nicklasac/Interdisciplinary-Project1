@@ -11,24 +11,22 @@ export default function PostForm({ readonly, savePost, post }) {
 
   useEffect(() => {
     if (post) {
-      // if post, set the states with values from the post object.
-      // The post object is a prop, passed from UpdatePage
+      //Post er en prop, med info fra Updatepage
       setTitle(post.title);
       setBody(post.body);
       setTime(post.time);
       setLocation(post.location);
       setImage(post.image);
     }
-  }, [post]); // useEffect is called every time post changes.
+  }, [post]); // useEffect bliver kaldt hver gang post bliver ændret.
 
   /**
-   * handleImageChange is called every time the user chooses an image in the fire system.
-   * The event is fired by the input file field in the form
+   * handleImageChange bliver kaldt hver gang brugeren vælger et billede i fil syatemet
    */
   function handleImageChange(event) {
     const file = event.target.files[0];
     if (file.size < 500000) {
-      // image file size must be below 0,5MB
+      // billed fil størrelser skal være under 0,5MB
       const reader = new FileReader();
       reader.onload = (event) => {
         setImage(event.target.result);
@@ -36,7 +34,7 @@ export default function PostForm({ readonly, savePost, post }) {
       reader.readAsDataURL(file);
       setErrorMessage(""); // reset errorMessage state
     } else {
-      // if not below 0.5MB display an error message using the errorMessage state
+      // hvis den ikke er under 0.5MB bliver der vist en error message ved hjælp af errorMessage
       setErrorMessage("The image file is too big!");
     }
   }
@@ -44,7 +42,7 @@ export default function PostForm({ readonly, savePost, post }) {
   function handleSubmit(event) {
     event.preventDefault();
     const formData = {
-      // create a new objebt to hold the value from states / input fields
+      // Laver et nyt objekt til at holde værdien from states / input fields
       title: title,
       image: image,
       body: body,
@@ -57,12 +55,13 @@ export default function PostForm({ readonly, savePost, post }) {
       formData.body &&
       formData.time &&
       formData.location &&
-      formData.image; // will return false if one of the properties doesn't have a value
+      formData.image; // vil give en fejl hvis ingen af properties ikke har en værdi
     if (validForm) {
       // if all fields/ properties are filled, then call savePost
+      // hvis alle felter er udfyldt, kan der blive kaldt savePost
       savePost(formData);
     } else {
-      // if not, set errorMessage state.
+      // hvis ikke: errorMessage state
       setErrorMessage("Please, fill in all fields.");
     }
   }

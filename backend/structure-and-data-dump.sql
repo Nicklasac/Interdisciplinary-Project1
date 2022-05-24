@@ -67,7 +67,7 @@ VALUES
 'Store Torv 18 Borgporten, 8000 Aarhus ',
 'https://images.pexels.com/photos/6152263/pexels-photo-6152263.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 '2'),
-(3,'2022-04-28 13:49:29',
+(3,'2022-04-28 13:49:29', 
 'Cheap pasteries',
 'Kohberg is a partner when Netto from 2014 will sell freshly baked breakfast bread and cakes in the chains 400 stores across the country. Secure your mystery bag filled with pastries.',
 'Pickup time: 17:00',

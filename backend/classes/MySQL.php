@@ -6,10 +6,10 @@ set_error_handler(function() {  });
 // Creates the MySQL class
 class MySQL {
     public $error = null;
-    private $server = "localhost"; // Change to domain name, e.g. www.iloveunicorns.com
-    private $username = "root"; // Change to the admins username of the server
-    private $password = "Nick4687banan10"; // Change to the admins password of the server
-    private $database = "foodsaviour"; // Change to the name of the database you would like to connect to on the server
+    private $server = "mysql108.unoeuro.com"; // Change to domain name, e.g. www.iloveunicorns.com
+    private $username = "nicklasandie_dk"; // Change to the admins username of the server
+    private $password = "69F5gaAdrDtb"; // Change to the admins password of the server
+    private $database = "nicklasandie_dk_db_foodsaviour"; // Change to the name of the database you would like to connect to on the server
 
     public $mySQL;
     private $isConnected = false;
@@ -39,6 +39,7 @@ class MySQL {
     // Establish a connection to the MySQL server, based on the server and database settings
     public function Connect() {
         $this->mySQL = new mysqli($this->server, $this->username, $this->password, $this->database);
+        $this->mySQL->set_charset("utf8");
 
         if(empty($this->mySQL->connect_error)) {
             $this->isConnected = true;

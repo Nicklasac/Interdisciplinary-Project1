@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/img/FoodSaviour-v3.png";
 
+// Navigation og Logo
+
 export default function Nav() {
   const [user] = useState(JSON.parse(localStorage.getItem("authUser")));
   console.log(user);

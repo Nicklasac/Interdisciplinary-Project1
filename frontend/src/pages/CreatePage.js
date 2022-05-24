@@ -10,9 +10,9 @@ export default function CreatePage() {
   const navigate = useNavigate();
 
   async function createPost(newPost) {
-    newPost.uid = user.id; // default user id (RACE)
+    newPost.uid = user.id;
 
-    const url = "http://localhost:3000/backend/posts/";
+    const url = "https://foodsaviourapi.nicklasandie.dk/posts/";
     const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify(newPost),

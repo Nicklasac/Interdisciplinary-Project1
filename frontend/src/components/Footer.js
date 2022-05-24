@@ -6,12 +6,13 @@ import linkedin from "../assets/img/linkedin-icon.png";
 import phone from "../assets/img/phone-icon.png";
 import mail from "../assets/img/mail-icon.png";
 
+//function med footer
 function Footer() {
   return (
     <div className="main-footer">
       <div className="container">
         <div className="row">
-          {/* Column1 */}
+          {/* række med ikoner */}
           <div className="col">
             <ul className="list-unstyled">
               <li>

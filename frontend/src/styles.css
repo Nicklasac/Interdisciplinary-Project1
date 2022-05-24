@@ -360,3 +360,11 @@ form .file-input {
   object-fit: cover;
   border-radius: 50%;
 }
+
+.signInImg {
+  max-width: 200px;
+  max-height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

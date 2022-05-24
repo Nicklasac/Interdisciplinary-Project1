@@ -6,7 +6,7 @@ export default function UpdatePage() {
   const [post, setPost] = useState({});
   const params = useParams();
   const navigate = useNavigate();
-  const url = `http://localhost:3000/backend/posts/?id=${params.postId}`;
+  const url = `https://foodsaviourapi.nicklasandie.dk/posts/?id=${params.postId}`;
 
   useEffect(() => {
     async function getPost() {

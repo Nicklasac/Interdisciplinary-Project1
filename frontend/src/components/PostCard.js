@@ -7,7 +7,7 @@ export default function PostCard({ post }) {
   const navigate = useNavigate();
 
   /**
-   * handleClick is called when user clicks on the Article (PostCard)
+   * HandleClick bliver kaldt når der bliver trykket på en Article
    */
   function handleClick() {
     navigate(`posts/${post.id}`);

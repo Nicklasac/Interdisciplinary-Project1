@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/img/FoodSaviour-v3.png";
 
 export default function SignUpPage({ setAuth }) {
   const [errorMessage, setErrorMessage] = useState("");
@@ -8,11 +9,11 @@ export default function SignUpPage({ setAuth }) {
 
   async function handleSignUp(event) {
     event.preventDefault();
-    const mail = event.target.mail.value; // mail value from inout field in sign in form
-    const password = event.target.password.value; // password value from inout field in sign in form
-    const passwordCheck = event.target.passwordCheck.value; // password value from inout field in sign in form
+    const mail = event.target.mail.value; //mail værdien fra input feltet sign in
+    const password = event.target.password.value; // password værdi fra input feltet sign in
+    const passwordCheck = event.target.passwordCheck.value; // password værdi fra input feltet sign in
 
-    const name = event.target.name.value; // password value from inout field in sign in form
+    const name = event.target.name.value; // password værdi fra input feltet sign in
 
     const newUser = {
       mail: mail,
@@ -22,7 +23,7 @@ export default function SignUpPage({ setAuth }) {
     };
     console.log(newUser);
     const response = await fetch(
-      "http://localhost:3000/backend/auth/?action=signup",
+      "https://foodsaviourapi.nicklasandie.dk/auth/?action=signup",
       {
         method: "POST",
         body: JSON.stringify(newUser),
@@ -43,6 +44,7 @@ export default function SignUpPage({ setAuth }) {
 
   return (
     <section className="page">
+      <img className="signInImg" src={logo} />
       <h1>Sign Up</h1>
       <form onSubmit={handleSignUp}>
         <input type="text" name="name" placeholder="Type your name" />
